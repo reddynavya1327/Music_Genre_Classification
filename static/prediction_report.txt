@@ -1,0 +1,5 @@
+Music Genre Classification Report
+--------------------------------
+Uploaded File: reggae.00004.wav
+Predicted Genre: disco
+Confidence Score: 16.2%

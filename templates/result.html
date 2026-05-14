@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prediction Result</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body>
+<div class="box large">
+
+    <h1>Music Genre Prediction Result</h1>
+
+    <p>Uploaded File:</p>
+    <h3>{{ filename }}</h3>
+
+    {% if audio_file %}
+    <audio controls>
+        <source src="/static/uploads/{{ audio_file }}" type="audio/wav">
+    </audio>
+    {% endif %}
+
+    <p>Predicted Genre:</p>
+    <h1 class="genre">{{ genre }}</h1>
+
+    <p>Confidence Score:</p>
+    <h2>{{ confidence }}%</h2>
+
+    {% if top_predictions %}
+    <h2>Top 3 Predictions</h2>
+
+    <div class="top-box">
+        {% for item in top_predictions %}
+        <div class="top-item">
+            <span>{{ item.genre }}</span>
+            <span>{{ item.confidence }}%</span>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    {% if spectrogram %}
+    <h2>Audio Spectrogram</h2>
+    <img src="/static/spectrograms/{{ spectrogram }}" class="spectrogram">
+    {% endif %}
+
+    <br><br>
+
+    <a href="/dashboard">Predict Again</a>
+    <br><br>
+    <a href="/history">View History</a>
+
+    <br><br>
+
+<a href="/download_report/{{ filename }}/{{ genre }}/{{ confidence }}">
+    <button>Download Report</button>
+</a>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,16 @@
+﻿venv/
+.venv/
+__pycache__/
+*.pyc
+dataset/
+datasets/
+Data/
+*.h5
+*.pkl
+*.joblib
+*.wav
+*.mp3
+*.mp4
+*.zip
+*.rar
+*.csv

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body>
+<div class="box large">
+
+    <h1>Music Genre Classification</h1>
+
+    <p>Welcome, <b>{{ username }}</b></p>
+
+    <div class="stats-container">
+
+        <div class="stat-card">
+            <h2>{{ total_predictions }}</h2>
+            <p>Total Predictions</p>
+        </div>
+
+        <div class="stat-card">
+            <h2>{{ average_confidence }}%</h2>
+            <p>Average Confidence</p>
+        </div>
+
+        <div class="stat-card">
+            <h2>{{ last_genre }}</h2>
+            <p>Last Predicted Genre</p>
+        </div>
+
+    </div>
+
+    <p class="info">
+        Upload a WAV audio file. The CNN model extracts MFCC features and predicts the music genre.
+    </p>
+
+    <form method="POST" enctype="multipart/form-data">
+        <input type="file" name="audio" accept=".wav" required>
+        <button type="submit">Predict Genre</button>
+    </form>
+
+    <div class="links">
+        <a href="/history">View History</a>
+        <a href="/logout">Logout</a>
+    </div>
+
+</div>
+</body>
+</html>
